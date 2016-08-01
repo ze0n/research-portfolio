@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Research Portfolio of Konstantin Knyazkov</title>
+    <link rel="stylesheet" href="tufte.css"/>
+    <link rel="stylesheet" href="latex.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<article>
+    <h1 id="tufte-css">Research Portfolio</h1>
+
+    <p class="subtitle">Konstantin Knyazkov</p>
+    <section>
+        <p>This document contains selected results of my work, which can be shown visually. Results are separated
+            into several thematic groups.</p>
+    </section>
+
+    <section>
+        <h2 id="abm">1. Agent-based Modeling and Simulation</h2>
+
+        <!-- ------------------------------------------------------------------------------ -->
+
+        <h3 id="matb">1.1 Agent-based Simulation Framework</h3>
+
+        <p>
+            <i><b>Problem:</b></i>
+            Design and development a microscopic agent-based simulation framework for urban mobility simulation. The
+            framework should be capable of running in distributed computational environments in order to support large
+            models.
+            Two general use cases were taken into account at design time:
+        <ul>
+            <li>crowd simulation - 2D space, continuous time, obstacles, RVO2 model of collision avoidance</li>
+            <li>traffic simulation - graph space (1.5D), continuous time, crosses, IDM model of movement</li>
+        </ul>
+        </p>
+
+        <p>
+            <i><b>Responsibility:</b></i>
+            Design and development of the framework and a traffic model. Supervision of master students working on
+            framework development.
+        </p>
+
+        <figure>
+            <span class="marginnote">High-level Engine Architecture</span>
+            <img src="img/traffic/sch3.png"/>
+        </figure>
+
+        <figure>
+            <span class="marginnote">Structure of the core classes</span>
+            <img src="img/traffic/uml1.png"/>
+        </figure>
+
+        <figure>
+            <span class="marginnote">Performance evaluation of a distributed version. Measurements were performed within a simple scenario of daily traffic simulation with static routes.</span>
+            <img src="img/traffic/Graph.png" width="50%"/><img src="img/traffic/azrate.png" width="50%"/>
+        </figure>
+        <figure>
+            <span class="marginnote">Visualization software is interactive and can influence simulation. For instance, touch interface allows to select and remove an edge of a road graph.</span>
+            <img src="img/traffic/matb.png" width="55%"/><img src="img/traffic/touch.jpg" width="45%"/>
+        </figure>
+
+        <!-- ------------------------------------------------------------------------------ -->
+
+        <h3 id="tsim">1.2 Microscopic Traffic Simulation within a Cloud computing environment</h3>
+
+        <p>
+            <i><b>Problem:</b></i> Implementation of a model of traffic dynamics for the case of a large city. The
+            general intention of the project was to investigate the principles of distributed agent-based simulation
+            with incorporation of real data from sensors.
+        </p>
+
+        <p>
+            <i><b>Responsibility:</b></i>
+            Literature review on traffic modeling. Implementation of a traffic model. Debug and verification of the
+            model.
+            Supervision of student's work on model validation.
+        </p>
+
+        <figure>
+            <span class="marginnote">Illustration of the continuously working traffic model on the cloud with dynamic resources.</span>
+            <img src="img/traffic/loop.png" width="80%"/>
+        </figure>
+
+        <p>
+            The model consisted of following parts:
+        <ul>
+            <li>IDM with several driver classes</li>
+            <li>Lane changing logic</li>
+            <li>Crosses passing</li>
+            <li>Dynamic routing within a changing environment</li>
+            <li>Flood escape semantics</li>
+            <li>Routing with the use of different types of DSS</li>
+        </ul>
+
+        </p>
+        <!-- ------------------------------------------------------------------------------ -->
+    </section>
+    <section>
+
+        <h2 id="evac">2. Traffic Evacuation Modeling and Simulation</h2>
+
+        <!-- ------------------------------------------------------------------------------ -->
+
+        <h3 id="dss">2.1 Number of users of in-vehicle DSS</h3>
+
+        <p>
+            <i><b>Problem:</b></i>
+            Investigation of the process of evacuation with the use of DSS for navigation. Investigation of an influence
+            of number of system users on evacuation effectiveness.
+        </p>
+
+        <p>
+            <i><b>Responsibility:</b></i>
+            Major software development, modeling, simulation, visualization. Minor paper writing.
+        </p>
+
+        <p><span class="marginnote">Ivanov, S. V., & Knyazkov, K. V. (2014). Evaluation of in-vehicle Decision Support System for Emergency Evacuation. Procedia Computer Science, 29, 1656-1666.</span>
+            <i><b>Abstract:</b></i> One of the most important issues in Decision Support Systems (DSS) technology is in
+            ensuring their
+            effectiveness and efficiency for future implementations and use. DSS is prominent tool in disaster
+            information system, which allows the authority to provide life safety information directly to the mobile
+            devices of anyone physically located in the evacuation area. After that a personal DSS guides users to
+            a safe point. Due to the large uncertainty in initial conditions and assumptions on underlying process
+            the implementation and evaluation of such DSS are extremely hard, particularly in real environment.
+            We propose a simulation methodology for the evaluation of in-vehicle DSS for emergency evacuation
+            based on transport system and human decision-making modeling.</p>
+        <figure>
+            <span class="marginnote">Simulation result of computational experiments: (a) evaluation of the exit use balance for 25000 of
+agents, (b) the relative evacuation time for each scenario</span>
+            <img src="img/traffic/graphs.png"/>
+        </figure>
+        <p><b>The key finding</b> is
+            that the significant effect can be achieved on existing infrastructure without drastic modifications. The
+            overall effectiveness of the evacuation depends on the fraction of DSS users in a total evacuee
+            number. For our case study the best time of evacuation was reached at 80%-85% (12.5 – 50 thousands
+            of agent) of DSS users and it is approximately two times faster than without the use of DSS at all.
+            Before optimum the rate of evacuation time falls linearly. After that, the efficiency of evacuation
+            started to decline and other routing algorithms dealing with traffic flow rather than with individual
+            users are required.</p>
+
+        <!-- ------------------------------------------------------------------------------ -->
+
+        <h3 id="flood">2.2 Evaluation of different decision support strategies in case of evacuation from flooding</h3>
+
+        <p>
+            <i><b>Problem:</b></i>
+        <ul>
+            <li>
+                To investigate an influence of DSS on evacuation performance. DSS types: ordinary navigators (TomTom),
+                learning
+                navigators (information on flooding is being transmitted from users), navigators with full information
+                on
+                flooding (sensors).
+            </li>
+            <li>To develop a model coupling technology.</li>
+        </ul>
+        </p>
+
+        <p>
+            <i><b>Responsibilities:</b></i>
+            Major development, major paper writing, simulation, modeling, visualization, partial evaluation of results.
+        </p>
+
+        <p>
+            <span class="marginnote">Knyazkov, K., Balakhontceva, M., & Ivanov, S. (2014). TOWARDS A FRAMEWORK FOR SIMULATION-BASED EVALUATION OF PERSONAL DECISION SUPPORT SYSTEMS FOR FLOOD EVACUATION. 14th SGEM GeoConference on Informatics, Geoinformatics and Remote Sensing, 1(SGEM2014 Conference Proceedings, ISBN 978-619-7105-10-0/ISSN 1314-2704, June 19-25, 2014, Vol. 1), 883-894.</span>
+            <i><b>Abstract:</b></i> Development of personal decision support systems for emergency evacuation is a
+            complex task which requires a simulation-based evaluation to be conducted. For this
+            purpose a composite geo-simulation application for the case of flood threat is developed
+            on the base of an agent-based simulation framework. The application is composed of a
+            traffic dynamics model coupled to a flood model and is used as a framework for
+            investigation of the efficiency of three in-vehicle spatial personal decision support
+            systems. These navigation systems are based on different approaches to the
+            management of environmental dynamics information.
+        </p>
+
+        <figure>
+            <span class="marginnote">Traffic simulation workflow illustration</span>
+            <img src="img/traffic/wf.png" width="70%"/>
+        </figure>
+
+        <figure>
+            <span class="marginnote">Structural scheme of agent’s behavior</span>
+            <img src="img/traffic/Picture4.png" width="60%"/>
+        </figure>
+        <figure>
+            <span class="marginnote">Evacuation scenarios comparison</span>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/T44NHUEbcyg" frameborder="0"
+                    allowfullscreen></iframe>
+        </figure>
+
+        <!-- ------------------------------------------------------------------------------ -->
+
+        <h3 id="ambu">2.3 Analysis of Ambulances Routing in St. Petersburg</h3>
+
+        <p>
+            <span class="marginnote">Knyazkov, K., Derevitsky, I., Mednikov, L., & Yakovlev, A. (2015). Evaluation of Dynamic Ambulance Routing for the Transportation of Patients with Acute Coronary Syndrome in Saint-petersburg. Procedia Computer Science, 66, 419-428.</span>
+            <i><b>Abstract:</b></i>
+            Effective treatment of acute coronary syndrome (ACS) patients depends on the transportation time to a
+            hospital. But selection of an optimal route and target hospital for an ambulance within a large city is a
+            complex problem. It requires taking into account the dynamical nature of an urban environment. Such
+            dynamic factors as traffic flow, changing road graph, population mobility, and hospital capabilities are
+            sources of uncertainty in decision making on hospitalization, and eventually they influence the
+            functioning quality of emergency medical services (EMS) in a city. This work is devoted to the analysis
+            of this problem for the city of Saint-Petersburg (Russia) with the use of statistical data, public
+            geographic information services (OpenStreetMap), and real-time data on traffic flow (Yandex.Maps).
+            It is shown that dynamic traffic conditions influence selection of a hospital and have to be considered
+            within the task of ambulance routing. The results may be applied in order to design a more efficient
+            EMS decision support system for ambulance personnel and dispatchers.
+        </p>
+
+        <p>
+            <i><b>Responsibilities:</b></i>
+            Data processing, analysis, visualization. Supervision of student's work on simulation of ambulances
+            functioning.
+        </p>
+
+        <figure>
+            <span class="marginnote">Methods of analysis (method III corresponds to the future work and is described in section 6)</span>
+            <img src="img/traffic/ambu2.png"/>
+        </figure>
+
+        <figure>
+            <span class="marginnote">Results of data analysis</span>
+            <img src="img/traffic/ambu.png" width="65%"/>
+        </figure>
+
+        <!-- ------------------------------------------------------------------------------ -->
+
+        <figure><span class="marginnote">Ambulance service simulation, which was developed by a student under my supervision</span>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/uEnlYsj2puo" frameborder="0"
+                    allowfullscreen></iframe>
+        </figure>
+
+        <!-- ------------------------------------------------------------------------------ -->
+
+    </section>
+    <section>
+
+        <h2 id="simulation-infra">3. Infrastructures for simulation</h2>
+
+        <h3 id="CLAVIRE">3.1 The CLAVIRE project</h3>
+
+        <p><span class="marginnote">Links: <a href="http://clavire.com">http://clavire.com</a> (official CLAVIRE website in Russian); <a
+                href="http://en.escience.ifmo.ru/research/view/9">page at
+            escience.ifmo.ru</a> with short description</span></p>
+
+        <p>CLAVIRE – 3-year research and development project, aimed at development of the cloud-computing platform of a
+            new generation. The platform uses the idea of Workflows on top of the SaaS level of simple software modules.
+            I contributed to the project by development of several core components and by conducting of related
+            research.</p>
+
+        <p><span class="marginnote">CLAVIRE project promo video</span>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Vv98FL2SmAI" frameborder="0"
+                    allowfullscreen></iframe>
+        </p>
+
+        <p><span class="marginnote">Knyazkov, K. V., Kovalchuk, S. V., Tchurov, T. N., Maryin, S. V., & Boukhanovsky, A. V. (2012).
+                CLAVIRE: e-Science infrastructure for data-driven computing. Journal of Computational Science, 3(6),
+                504-510.</span>
+
+            CLAVIRE is an e-Science infrastructure platform for DDA-computing. The platform supports the high-level
+            abstract
+            description
+            of computational processes in terms of composite applications, using a set of domain specific software
+            and
+            distributed data sources available within the service-oriented distributed computational environment.
+            Composite
+            applications of CLAVIRE are described using an abstract software calling (without definition of
+            particular
+            resources) which can be mapped on available hardware resources. It allows to run the software on
+            different
+            computation platforms (including environments like Grids or cloud infrastructures) using automatic
+            scheduling
+            procedure for resource selection. Knowledge-based tools decision support for the users during WF
+            composing
+            and
+            execution is provided by means of the set of intelligent human interactions interfaces.</p>
+
+        <figure>
+            <span class="marginnote">CLAVIRE IDE demonstration</span>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/AV6gALaqj_0" frameborder="0"
+                    allowfullscreen></iframe>
+        </figure>
+
+        <p>
+            <i><b>Responsibilities:</b></i> In addition to research and development tasks, which are presented below, I
+            developed several
+            software components for the system, e.g. infrastructural services for event processing and monitoring.
+        </p>
+
+        <h3 id="unif">3.2 Unified Description of Software and Workflows</h3>
+
+        <p>
+            <i><b>Problem:</b></i>
+            Development of methodological and technological foundations for software incorporation into a distributed
+            computational environment to be able to use it in form of Composite Applications.
+        </p>
+
+        <p>
+            <i><b>Responsibilities:</b></i>
+        <ul>
+            <li>
+                Designed the module description DSL (EasyPackage). Participated in design of a declarative DSL for
+                scientific
+                workflow definition (EasyFlow).
+            </li>
+            <li>Developed a workflow management service for workflow orchestration. The service includes interpreter of
+                the
+                scripts in EasyFlow.
+            </li>
+            <li>Developed web UI, which provides the workflow execution functionality of the platform. Developed two
+                frontends with corresponding backends: Silverlight component and website in HTML/JavaScript.
+            </li>
+        </ul>
+
+        </p>
+
+        <figure>
+            <span class="marginnote">Scheme of package description interpretation within the process of package execution</span>
+            <img src="img/clavire/Picture2.png"/>
+        </figure>
+
+        <figure>
+            <span class="marginnote">Part of a hydrometeorological package description in EasyPackage DSL</span>
+            <img src="img/clavire/EP (2).png" width="50%"/>
+        </figure>
+
+        <figure>
+            <span class="marginnote">Demonstration of package execution with the use of web-frontend (Russian). The package interface is generated according to its description.</span>
+            <iframe src="https://player.vimeo.com/video/70790458" width="640" height="360" frameborder="0"
+                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </figure>
+
+        <figure>
+            <span class="marginnote">Traffic simulation workflow defined within the CLAVIRE IDE in EasyFlow DSL</span>
+            <img src="img/clavire/Picture3.png"/>
+        </figure>
+
+        <h3 id="interact">3.3 Interactive Workflows Technology</h3>
+
+        <p>
+            <i><b>Problem:</b></i>
+            Development of mechanisms for working with long-running, communicating and interactive applications within
+            the
+            distributed computational environment.
+        </p>
+
+        <p>
+            <span class="marginnote">Knyazkov, K. V., Nasonov, D. A., Tchurov, T. N., & Boukhanovsky, A. V. (2013). Interactive workflow-based infrastructure for urgent computing. Procedia Computer Science, 18, 2223-2232.</span>
+
+            <i><b>Responsibilities:</b></i>
+            Proposed interactive workflow principles and patterns for Urgent Computing. Prototyped the corresponding
+            technology. Then, worked on an interactive virtual environment concept, based on the proposed principles.
+            Implemented the technology of interactive workflows, considering real-time communication of modules within
+            the workflow in two possible forms: formal communication using reactive programming library and plain socket
+            interaction.
+        </p>
+        <figure>
+            <span class="marginnote">(a) interactive block with its interface; (b) sample interactive workflow</span><img
+                src="img/interact/sch.png"/></figure>
+        <figure><span class="marginnote">Scheme of interactive crowd management application chosen for experimental study</span><img
+                src="img/interact/image.png"/></figure>
+        <figure>
+            <span class="marginnote">
+                Crowd management application prototype developed with the use of the proposed interactive workflow technology. Visualization software communicates with several simulations running on the cloud.
+            </span>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/A9ZW_7vv55Y" frameborder="0"
+                    allowfullscreen></iframe>
+        </figure>
+
+        <h3 id="inter">3.4 Interactive Simulation Environment</h3>
+
+        <p>
+            <i><b>Problem:</b></i>
+            Design and development of a simulation environment with interactive capabilities. The environment is
+            based on the following parts:
+        <ol>
+            <li>Virtual environment comprising domain-specific visualization and means of control</li>
+            <li>System model which can be interpreted by a meta simulation engine</li>
+            <li>Computational middleware (CLAVIRE)</li>
+        </ol>
+
+        </p>
+
+        <p><span class="marginnote">Knyazkov, K. V., & Kovalchuk, S. V. (2014). Modeling and Simulation Framework for Development of Interactive Virtual Environments. Procedia Computer Science, 29, 332-342.</span>
+
+            Framework for interactive virtual environments’ development for simulation and
+            modeling of complex systems. The framework uses system’s structural model as a core concept for
+            composition and control of simulation-based scientific experiments not in terms of technological
+            processes or workflows but in terms of domain-specific objects and their interconnection within the
+            investigated system. The proposed framework enables integration and management of resources
+            available within a cloud computing environment in order to support automatic simulation management
+            and to provide the user with an interactive visual domain-specific interface to the system.</p>
+
+        <figure><span
+                class="marginnote">Scheme of the interactive virtual environment built using the framework</span><img
+                src="img/interact/Picture5.png" width="70%"/></figure>
+
+        <figure><span class="marginnote">System’s model for a traffic simulation application</span><img
+                src="img/traffic/sys.png"/></figure>
+
+    </section>
+    <!-- ------------------------------------------------------------------------------ -->
+    <section>
+        <h2 id="evo">4. Evolutionary computation</h2>
+
+        <h3 id="hyb">4.1 Hybrid scheduling</h3>
+
+        <p>
+            <span class="marginnote">Nasonov, D., Butakov, N., Balakhontseva, M., Knyazkov, K., & Boukhanovsky, A. V. (2014). Hybrid Evolutionary
+        Workflow Scheduling Algorithm for Dynamic Heterogeneous Distributed Computational Environment. In International
+        Joint Conference SOCO’14-CISIS’14-ICEUTE’14 (pp. 83-92). Springer International Publishing.</span>
+            <i><b>Abstract:</b></i>
+            The optimal workflow scheduling is one of the most important issues
+            in heterogeneous distributed computational environment. Existing heuristic and
+            evolutionary scheduling algorithms have their advantages and disadvantages. In
+            this work we propose a hybrid algorithm based on Heterogeneous Earliest
+            Finish Time heuristic and genetic algorithm that combines best characteristics
+            of both approaches. We also experimentally show its efficiency for variable
+            workload in dynamically changing heterogeneous computational environment.
+        </p>
+
+        <p>
+            <i><b>Responsibility:</b></i> Participation in generating of ideas, problem statement, experiment planning,
+            data analysis and visualization.
+        </p>
+
+        <figure><span class="marginnote">Schematic illustration of hybrid scheduling process: (a) task execution log, (b) plan
+comparison at runtime</span><img src="img/evo/soco.sch0.png"/></figure>
+
+        <h3 id="optdet">4.2 Optimization of detectors layout</h3>
+
+        <p>
+            <i><b>Problem:</b></i>
+            To optimize a layout of detectors, which are installed in airport with the use of pedestrian tracks taken
+            from agent-based simulation.
+        </p>
+
+        <p>
+            <i><b>Responsibilities:</b></i> Participation in generating of ideas, problem statement, experiment
+            planning, paper writing, data analysis.
+        </p>
+
+        <p>
+            <span class="marginnote">Butakov, N., Nasonov, D., Knyazkov, K., Karbovskii, V., & Chuprova, Y. (2015). The multi-agent simulation-based
+        framework for optimization of detectors layout in public crowded places. Procedia Computer Science, 51, 522-531</span>
+            <i><b>Abstract:</b></i>
+            In this work the framework for detectors layout optimization based on a multi-agent simulation is
+            proposed. Its main intention is to provide a decision support team with a tool for automatic design of
+            social threat detection systems for public crowded places. Containing a number of distributed
+            detectors, this system performs detection and an identification of threat carriers. The generic model of
+            detector used in the framework allows to consider detection of various types of threats, e.g. infections,
+            explosives, drugs, radiation. The underlying agent-based models provide data on social mobility,
+            which is used along with a probability based quality assessment model within the optimization
+            process. The implemented multi-criteria optimization scheme is based on a genetic algorithm. For
+            experimental study the framework has been applied in order to get the optimal detectors' layout in
+            Pulkovo airport.
+        </p>
+
+        <figure><span class="marginnote">Detector layouts generated by density based heuristic (DE) and genetic algorithm (GA)</span>
+            <img src="img/traffic/gade.png"/>
+        </figure>
+
+        <figure><span class="marginnote">Receiver operating characteristic</span>
+            <img src="img/traffic/roc.png" width="50%"/>
+        </figure>
+
+        <h3 id="opt">4.3 Optimization of information spreading on Twitter</h3>
+
+        <p>
+            <i><b>Problem:</b></i>
+            Investigation of information spreading management in social networks. The goal is to
+            design a framework for simulation-based optimization of information spreading strategies based on a genetic
+            algorithm and an information flow model.
+        </p>
+
+        <p>
+            <i><b>Responsibility:</b></i> Participation in generating of ideas, problem statement, experiment planning,
+            data analysis and visualization.
+        </p>
+
+        <p>
+            <span class="marginnote">Butakov, N., Chuprova, Y., Knyazkov, K., Shindyapina, N., & Boukhanovsky, A. (2015). Evolutionary-based
+        Framework for Optimizing the Spread of Information on Twitter. Procedia Computer Science, 66, 287-296.</span>
+            <i><b>Abstract:</b></i>
+            Currently social networks are a medium designed to share and spread information and opinions
+            among users. To effectively spread information characteristics of information sources and their
+            positions in the network have to be properly adjusted. Sources play a crucial role as they initiate and
+            support the spreading process. Adjusting sources has a certain cost and thus their non-optimal
+            configuration may lead to wasting resources spent to sources adjusting or even poor performance. In
+            this work, the problem of sources settings and positions optimization is discussed and the framework
+            for solving the problem is proposed. The developed framework incorporates source and spreading
+            models which take into account individual characteristics of sources as characteristics of their
+            positions. The solution can handle all steps which may be required for optimization: network
+            monitoring and data collecting; parameters and settings identification; source layout optimization.
+            The efficiency of solutions generated by the framework with the genetic algorithm adapted for source
+            layout optimization is demonstrated by comparison with greedy heuristic on the dataset collected
+            from Twitter.
+        </p>
+
+    </section>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <section>
+        <h2 id="dddss">5. Data-driven decision support systems</h2>
+
+        <h3 id="ens">4.1 Ensemble Modeling of Water Level in Finnish Gulf</h3>
+
+        <p>
+            <span class="marginnote">Kovalchuk, S. V., Krikunov, A. V., Knyazkov, K. V., & Boukhanovsky, A. V. (2015). On Classification Issues
+        within Ensemble-Based Complex System Simulation Tasks. arXiv preprint arXiv:1510.00292.</span>
+            <i><b>Problem:</b></i>
+            Validation of a new version of model ensemble for predicting of water level in Baltic Sea. The ensemble
+            model is used within the St. Petersburg Dam. Creation and testing of new methods of ensemble
+            performance evaluation targeting the following goals: better peaks detection, better ensemble
+            sustainability.
+        </p>
+
+        <p>
+            <i><b>Responsibility:</b></i> Application of symbolic regression to ensemble composition,
+            application of Markov chains to train model selector, performance metrics evaluation,
+            data analysis and visualization.
+        </p>
+
+        <figure>
+            <span class="marginnote">Ensemble Configurations Performance</span>
+            <img src="img/cdss/ensemble.png" alt="Ensemble Performance Graph" width="65%"/>
+        </figure>
+
+        <h3 id="cli">4.2 Clinical Decision Support</h3>
+
+        <p><span class="marginnote">Kovalchuk, S. V., Knyazkov, K. V., Syomov, I. I., Yakovlev, A. N., & Boukhanovsky, A. V. (2015). Personalized Clinical Decision Support with Complex Hospital-Level Modelling. Procedia Computer Science, 66, 392-401.</span>
+            The development of the concept of
+            clinical decision support system (CDSS). The concept is based on the complex hospital-level model
+            for enhancement of the decision making process. The proposed conceptual architecture incorporates
+            various classes of models and supports of the decision making for more complicated problems taking
+            into account hospital-level activities. The proposed concept is now implemented in the CDSS at
+            Federal Almazov North-West Medical Research Center.</p>
+
+        <p>
+            <i><b>Responsibility:</b></i> Data acquisition, data analysis and visualization, CDSS design.
+        </p>
+
+        <figure>
+            <span class="marginnote"> Data analysis architecture</span>
+            <img src="img/cdss/ArchEN.png"/>
+        </figure>
+
+        <figure>
+            <span class="marginnote">Example of personal treatment trajectory graph</span>
+            <img src="img/cdss/gr.png"/>
+        </figure>
+
+    </section>
+
+</article>
+</body>
+</html>
